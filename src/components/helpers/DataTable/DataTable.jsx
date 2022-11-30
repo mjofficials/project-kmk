@@ -17,6 +17,7 @@ const handleTableView = (e) => {
 const ViewButton = () => {
   return <button onClick={(e) => handleTableView(e)}>view</button>;
 };
+
 const columns = [
   {
     dataField: "name",
