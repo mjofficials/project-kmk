@@ -3,144 +3,154 @@ import BootstrapTable from "react-bootstrap-table-next";
 import ToolkitProvider, {
   Search,
 } from "react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit";
+import useFetch from "../../../hooks/useFetch.jsx";
+import Loader from "../Loader/Loader";
 const { SearchBar } = Search;
 
-const users = [
-  {
-    id: 0,
-    name: "Akash Kumar",
-    leadId: "00765454",
-    location: "Hyderabad",
-    eventDate: "2-8-2022",
-    status: 0,
-    canEdit: true,
-    canDelete: true,
-  },
-  {
-    id: 1,
-    name: "Manohar H",
-    leadId: "00765455",
-    location: "Vijayavada",
-    eventDate: "2-8-2022",
-    status: 1,
-    canEdit: false,
-    canDelete: false,
-  },
-  {
-    id: 2,
-    name: "Raghavendar",
-    leadId: "00765456",
-    location: "Bangalore",
-    eventDate: "2-8-2022",
-    status: 1,
-    canEdit: false,
-    canDelete: false,
-  },
-  {
-    id: 3,
-    name: "Abhishek K",
-    leadId: "00765457",
-    location: "Hyderabad",
-    eventDate: "2-8-2022",
-    status: 1,
-    canEdit: false,
-    canDelete: false,
-  },
-  {
-    id: 4,
-    name: "Udith Kumar",
-    leadId: "00765458",
-    location: "Pune",
-    eventDate: "2-8-2022",
-    status: 2,
-    canEdit: false,
-    canDelete: false,
-  },
-  {
-    id: 5,
-    name: "Akash Kumar",
-    leadId: "00765459",
-    location: "Bangalore",
-    eventDate: "2-8-2022",
-    status: 1,
-    canEdit: false,
-    canDelete: false,
-  },
-  {
-    id: 6,
-    name: "Akash Kumar",
-    leadId: "00765460",
-    location: "Bangalore",
-    eventDate: "2-8-2022",
-    status: 1,
-    canEdit: false,
-    canDelete: false,
-  },
-  {
-    id: 7,
-    name: "Manohar H",
-    leadId: "00765461",
-    location: "Hyderabad",
-    eventDate: "2-8-2022",
-    status: 1,
-    canEdit: false,
-    canDelete: false,
-  },
-  {
-    id: 8,
-    name: "Raghavendar",
-    leadId: "00765462",
-    location: "Delhi",
-    eventDate: "2-8-2022",
-    status: 1,
-    canEdit: false,
-    canDelete: false,
-  },
-  {
-    id: 9,
-    name: "Abhishek K",
-    leadId: "00765463",
-    location: "Bangalore",
-    eventDate: "2-8-2022",
-    status: 1,
-    canEdit: false,
-    canDelete: false,
-  },
-  {
-    id: 10,
-    name: "Udith Kumar",
-    leadId: "00765464",
-    location: "Hyderabad",
-    eventDate: "2-8-2022",
-    status: 2,
-    canEdit: false,
-    canDelete: false,
-  },
-  {
-    id: 11,
-    name: "Raghavendar",
-    leadId: "00765465",
-    location: "Delhi",
-    eventDate: "2-8-2022",
-    status: 1,
-    canEdit: false,
-    canDelete: false,
-  },
-  {
-    id: 12,
-    name: "Abhishek K",
-    leadId: "00765466",
-    location: "Bangalore",
-    eventDate: "2-8-2022",
-    status: 1,
-    canEdit: false,
-    canDelete: false,
-  },
-];
+// const users = [
+//   {
+//     id: 0,
+//     name: "Akash Kumar",
+//     leadId: "00765454",
+//     location: "Hyderabad",
+//     eventDate: "2-8-2022",
+//     status: 0,
+//     canEdit: true,
+//     canDelete: true,
+//   },
+//   {
+//     id: 1,
+//     name: "Manohar H",
+//     leadId: "00765455",
+//     location: "Vijayavada",
+//     eventDate: "2-8-2022",
+//     status: 1,
+//     canEdit: false,
+//     canDelete: false,
+//   },
+//   {
+//     id: 2,
+//     name: "Raghavendar",
+//     leadId: "00765456",
+//     location: "Bangalore",
+//     eventDate: "2-8-2022",
+//     status: 1,
+//     canEdit: false,
+//     canDelete: false,
+//   },
+//   {
+//     id: 3,
+//     name: "Abhishek K",
+//     leadId: "00765457",
+//     location: "Hyderabad",
+//     eventDate: "2-8-2022",
+//     status: 1,
+//     canEdit: false,
+//     canDelete: false,
+//   },
+//   {
+//     id: 4,
+//     name: "Udith Kumar",
+//     leadId: "00765458",
+//     location: "Pune",
+//     eventDate: "2-8-2022",
+//     status: 2,
+//     canEdit: false,
+//     canDelete: false,
+//   },
+//   {
+//     id: 5,
+//     name: "Akash Kumar",
+//     leadId: "00765459",
+//     location: "Bangalore",
+//     eventDate: "2-8-2022",
+//     status: 1,
+//     canEdit: false,
+//     canDelete: false,
+//   },
+//   {
+//     id: 6,
+//     name: "Akash Kumar",
+//     leadId: "00765460",
+//     location: "Bangalore",
+//     eventDate: "2-8-2022",
+//     status: 1,
+//     canEdit: false,
+//     canDelete: false,
+//   },
+//   {
+//     id: 7,
+//     name: "Manohar H",
+//     leadId: "00765461",
+//     location: "Hyderabad",
+//     eventDate: "2-8-2022",
+//     status: 1,
+//     canEdit: false,
+//     canDelete: false,
+//   },
+//   {
+//     id: 8,
+//     name: "Raghavendar",
+//     leadId: "00765462",
+//     location: "Delhi",
+//     eventDate: "2-8-2022",
+//     status: 1,
+//     canEdit: false,
+//     canDelete: false,
+//   },
+//   {
+//     id: 9,
+//     name: "Abhishek K",
+//     leadId: "00765463",
+//     location: "Bangalore",
+//     eventDate: "2-8-2022",
+//     status: 1,
+//     canEdit: false,
+//     canDelete: false,
+//   },
+//   {
+//     id: 10,
+//     name: "Udith Kumar",
+//     leadId: "00765464",
+//     location: "Hyderabad",
+//     eventDate: "2-8-2022",
+//     status: 2,
+//     canEdit: false,
+//     canDelete: false,
+//   },
+//   {
+//     id: 11,
+//     name: "Raghavendar",
+//     leadId: "00765465",
+//     location: "Delhi",
+//     eventDate: "2-8-2022",
+//     status: 1,
+//     canEdit: false,
+//     canDelete: false,
+//   },
+//   {
+//     id: 12,
+//     name: "Abhishek K",
+//     leadId: "00765466",
+//     location: "Bangalore",
+//     eventDate: "2-8-2022",
+//     status: 1,
+//     canEdit: false,
+//     canDelete: false,
+//   },
+// ];
 
-const DataTable = () => {
+const DataTable = ({ handleUserId }) => {
+  const {
+    data: users,
+    isPending,
+    error,
+  } = useFetch(
+    `https://my-json-server.typicode.com/mjofficials/fakeusers/users`
+  );
   const handleTableView = (e, row) => {
     console.log("view", row);
+    handleUserId(row.id);
   };
 
   const handleTableEdit = (e, row) => {
@@ -278,41 +288,45 @@ const DataTable = () => {
   };
   return (
     <>
-      <ToolkitProvider
-        keyField="id"
-        data={users}
-        columns={columns}
-        selectRow={selectRow}
-        search
-      >
-        {(props) => (
-          <div>
-            <div className="section_header row g-0 mb-5">
-              <h2 className="section_title col-12 col-lg-2">Leads</h2>
-              <div className="search_input_container col-12 col-lg-10">
-                <SearchBar {...props.searchProps} className="search_input" />
-                <button className="btn_custom btn_primary_red mx-3">
-                  <span className="me-2">
-                    <i className="fa-solid fa-plus"></i>
-                  </span>
-                  Add New
-                </button>
-                <button className="btn_custom btn_primary_red">
-                  Assign to Admin
-                </button>
+      {error && <p>{error}</p>}
+      {isPending && <Loader />}
+      {users && (
+        <ToolkitProvider
+          keyField="id"
+          data={users}
+          columns={columns}
+          selectRow={selectRow}
+          search
+        >
+          {(props) => (
+            <div>
+              <div className="section_header row g-0 mb-5">
+                <h2 className="section_title col-12 col-lg-2">Leads</h2>
+                <div className="search_input_container col-12 col-lg-10">
+                  <SearchBar {...props.searchProps} className="search_input" />
+                  <button className="btn_custom btn_primary_red mx-3">
+                    <span className="me-2">
+                      <i className="fa-solid fa-plus"></i>
+                    </span>
+                    Add New
+                  </button>
+                  <button className="btn_custom btn_primary_red">
+                    Assign to Admin
+                  </button>
+                </div>
               </div>
+              <hr />
+              <BootstrapTable
+                {...props.baseProps}
+                selectRow={selectRow}
+                noDataIndication="Table is Empty"
+                bordered={false}
+                wrapperClasses="table-responsive"
+              />
             </div>
-            <hr />
-            <BootstrapTable
-              {...props.baseProps}
-              selectRow={selectRow}
-              noDataIndication="Table is Empty"
-              bordered={false}
-              wrapperClasses="table-responsive"
-            />
-          </div>
-        )}
-      </ToolkitProvider>
+          )}
+        </ToolkitProvider>
+      )}
     </>
   );
 };

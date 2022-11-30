@@ -1,11 +1,24 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
 import { Col, Nav, Row, Tab } from "react-bootstrap";
 import logo from "./assets/logo_kmk.png";
 import DropdownCollapse from "./components/helpers/DropdownCollapse/DropdownCollapse";
 import DataTable from "./components/helpers/DataTable/DataTable";
+import useFetch from "./hooks/useFetch";
 
 function App() {
+  const [userId, setUserId] = useState(0);
+  const handleUserId = (id) => {
+    setUserId(id);
+  };
+  const {
+    data: userDetail,
+    isPending,
+    error,
+  } = useFetch(
+    `https://my-json-server.typicode.com/mjofficials/fakeusers/users/${userId}`
+  );
   return (
     <div className="App">
       <Tab.Container defaultActiveKey="tab-leads">
@@ -70,7 +83,11 @@ function App() {
                 <p>Dashboard</p>
               </Tab.Pane>
               <Tab.Pane eventKey="tab-leads">
-                <DataTable />
+                {/* {userId ? (
+                  <div>{userDetail.name}</div>
+                ) : (
+                  )} */}
+                <DataTable handleUserId={handleUserId} />
               </Tab.Pane>
               <Tab.Pane eventKey="tab-completedProjects">
                 <p>Completed Projects</p>

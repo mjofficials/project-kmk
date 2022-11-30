@@ -1,0 +1,134 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "name": "Akash Kumar",
+      "leadId": "00765454",
+      "location": "Hyderabad",
+      "eventDate": "2-8-2022",
+      "status": 0,
+      "canEdit": true,
+      "canDelete": true
+    },
+    {
+      "id": 1,
+      "name": "Manohar H",
+      "leadId": "00765455",
+      "location": "Vijayavada",
+      "eventDate": "2-8-2022",
+      "status": 1,
+      "canEdit": false,
+      "canDelete": false
+    },
+    {
+      "id": 2,
+      "name": "Raghavendar",
+      "leadId": "00765456",
+      "location": "Bangalore",
+      "eventDate": "2-8-2022",
+      "status": 1,
+      "canEdit": false,
+      "canDelete": false
+    },
+    {
+      "id": 3,
+      "name": "Abhishek K",
+      "leadId": "00765457",
+      "location": "Hyderabad",
+      "eventDate": "2-8-2022",
+      "status": 1,
+      "canEdit": false,
+      "canDelete": false
+    },
+    {
+      "id": 4,
+      "name": "Udith Kumar",
+      "leadId": "00765458",
+      "location": "Pune",
+      "eventDate": "2-8-2022",
+      "status": 2,
+      "canEdit": false,
+      "canDelete": false
+    },
+    {
+      "id": 5,
+      "name": "Akash Kumar",
+      "leadId": "00765459",
+      "location": "Bangalore",
+      "eventDate": "2-8-2022",
+      "status": 1,
+      "canEdit": false,
+      "canDelete": false
+    },
+    {
+      "id": 6,
+      "name": "Akash Kumar",
+      "leadId": "00765460",
+      "location": "Bangalore",
+      "eventDate": "2-8-2022",
+      "status": 1,
+      "canEdit": false,
+      "canDelete": false
+    },
+    {
+      "id": 7,
+      "name": "Manohar H",
+      "leadId": "00765461",
+      "location": "Hyderabad",
+      "eventDate": "2-8-2022",
+      "status": 1,
+      "canEdit": false,
+      "canDelete": false
+    },
+    {
+      "id": 8,
+      "name": "Raghavendar",
+      "leadId": "00765462",
+      "location": "Delhi",
+      "eventDate": "2-8-2022",
+      "status": 1,
+      "canEdit": false,
+      "canDelete": false
+    },
+    {
+      "id": 9,
+      "name": "Abhishek K",
+      "leadId": "00765463",
+      "location": "Bangalore",
+      "eventDate": "2-8-2022",
+      "status": 1,
+      "canEdit": false,
+      "canDelete": false
+    },
+    {
+      "id": 10,
+      "name": "Udith Kumar",
+      "leadId": "00765464",
+      "location": "Hyderabad",
+      "eventDate": "2-8-2022",
+      "status": 2,
+      "canEdit": false,
+      "canDelete": false
+    },
+    {
+      "id": 11,
+      "name": "Raghavendar",
+      "leadId": "00765465",
+      "location": "Delhi",
+      "eventDate": "2-8-2022",
+      "status": 1,
+      "canEdit": false,
+      "canDelete": false
+    },
+    {
+      "id": 12,
+      "name": "Abhishek K",
+      "leadId": "00765466",
+      "location": "Bangalore",
+      "eventDate": "2-8-2022",
+      "status": 1,
+      "canEdit": false,
+      "canDelete": false
+    }
+  ]
+}
