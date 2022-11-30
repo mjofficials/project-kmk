@@ -1,9 +1,9 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Nav, Row, Tab } from "react-bootstrap";
-import Leads from "./components/Leads/Leads";
 import logo from "./assets/logo_kmk.png";
 import DropdownCollapse from "./components/helpers/DropdownCollapse/DropdownCollapse";
+import DataTable from "./components/helpers/DataTable/DataTable";
 
 function App() {
   return (
@@ -70,7 +70,7 @@ function App() {
                 <p>Dashboard</p>
               </Tab.Pane>
               <Tab.Pane eventKey="tab-leads">
-                <Leads />
+                <DataTable />
               </Tab.Pane>
               <Tab.Pane eventKey="tab-completedProjects">
                 <p>Completed Projects</p>
