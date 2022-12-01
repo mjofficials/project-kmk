@@ -26,7 +26,7 @@
 /* COMMON CSS */
 
 .text_danger {
-    color: var(--theme-primary-red);
+    color: var(--theme-primary-red) !important;
 }
 
 h2.section_title {
@@ -36,6 +36,7 @@ h2.section_title {
 .subtext {
     color: var(--theme-grey-100);
     font-size: clamp(12px, 2vw, 14px);
+    margin-bottom: 0;
 }
 
 .subtext.dark {
@@ -71,6 +72,12 @@ h2.section_title {
 .btn_primary_green {
     background-color: var(--theme-primary-green);
     color: var(--theme-white);
+}
+
+.btn_back {
+    border: 0;
+    background: transparent;
+    padding: 12px 0;
 }
 
 /* INPUT */
