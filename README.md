@@ -15,25 +15,27 @@ Tips:
 
 Project Requirements:
 
-Tools: React bootstrap, dataTable plugins (react-bootstrap-table-next), additional(sass)
+Tools: React bootstrap, dataTable plugins (react-bootstrap-table-next), CSS Preprocessor(sass)
 
 Color codes:
-primary-red: #f5272a,
-primary-green: #10BA5E,
-primary-blue: #20A1FE,
-primary-orange: #fc8f26 or #FFAA5E,
-primary-grey: #3f4440,
-secondary-grey: #959694,
-grey-100: #c7c6c5,
+--theme-primary-red: #f5272a;
+--theme-primary-green: #10BA5E;
+--theme-primary-blue: #20A1FE;
+--theme-primary-orange: #fc8f26;
+--theme-primary-grey: #3f4440;
+--theme-secondary-grey: #959694;
+--theme-grey-100: #c7c6c5;
+--theme-grey-200: #ffffff80;
+--theme-grey-300: #d3d3d3;
+--theme-grey-400: #f6f6f6;
+--theme-grey-500: #dee2e6;
+--theme-grey-600: #dfdfdf;
+
+--theme-red: #ff0000;
+--theme-white: #fff;
+--theme-white-80: #ffffff80;
+--theme-black: #000;
+--theme-red-100: #fe8b8b;
 
 Fonts: 'Alexandria', sans-serif;
 Icons: use font awesome
-
-Components:
-
-1. Sidebar panel (use bootstrap tabs to show tab-content as main content)
-2. Leads(tab) --> use dataTable plugins, CRUD operations here
-   2.1 Project Tracking --> this page (component) will be shown after clicking on any of the customer on dataTable, use custom accordions
-
-UI elements:
-accordions, tabs, dropdowns, Tables
