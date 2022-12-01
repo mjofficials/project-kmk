@@ -5,8 +5,8 @@ const DecorationTab = () => {
   return (
     <Tab.Container defaultActiveKey="tab-dProps">
       <Row className="mx-0 decoration_tab_container g-0">
-        <Col sm={12}>
-          <Nav variant="pills" className="flex-row mb-4">
+        <Col sm={12} className="overflowX_scroll">
+          <Nav variant="pills" className="flex-row flex-nowrap mb-4">
             <Nav.Item>
               <Nav.Link eventKey="tab-dProps">Decoration & Props</Nav.Link>
             </Nav.Item>

@@ -1,15 +1,18 @@
 import "./Accordions.scss";
 import Accordion from "react-bootstrap/Accordion";
-import BudgetInfo from "../../BudgetInfo/BudgetInfo";
+import UserInfoTable from "../../components/UserInfoTable/UserInfoTable";
+import BudgetInfo from "../../components/BudgetInfo/BudgetInfo";
 
-function Accordions() {
+function Accordions({ userObj }) {
   return (
     <Accordion defaultActiveKey="3" flush>
       <Accordion.Item eventKey="0">
         <Accordion.Header>
           <span className="accnbtn_text">Client Information</span>
         </Accordion.Header>
-        <Accordion.Body>Client Information content</Accordion.Body>
+        <Accordion.Body>
+          <UserInfoTable userObj={userObj} />
+        </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="1">
         <Accordion.Header>

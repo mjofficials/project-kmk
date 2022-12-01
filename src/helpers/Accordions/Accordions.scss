@@ -39,6 +39,10 @@
             .accordion-body {
                 padding: 16px 50px;
                 background-color: var(--theme-grey-400);
+
+                @media screen and (max-width: 768px) {
+                    padding: 16px 20px;
+                }
             }
         }
     }

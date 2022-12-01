@@ -3,142 +3,10 @@ import BootstrapTable from "react-bootstrap-table-next";
 import ToolkitProvider, {
   Search,
 } from "react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit";
-import useFetch from "../../../hooks/useFetch.jsx";
+import useFetch from "../../hooks/useFetch";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import Loader from "../Loader/Loader";
 const { SearchBar } = Search;
-
-// const users = [
-//   {
-//     id: 0,
-//     name: "Akash Kumar",
-//     leadId: "00765454",
-//     location: "Hyderabad",
-//     eventDate: "2-8-2022",
-//     status: 0,
-//     canEdit: true,
-//     canDelete: true,
-//   },
-//   {
-//     id: 1,
-//     name: "Manohar H",
-//     leadId: "00765455",
-//     location: "Vijayavada",
-//     eventDate: "2-8-2022",
-//     status: 1,
-//     canEdit: false,
-//     canDelete: false,
-//   },
-//   {
-//     id: 2,
-//     name: "Raghavendar",
-//     leadId: "00765456",
-//     location: "Bangalore",
-//     eventDate: "2-8-2022",
-//     status: 1,
-//     canEdit: false,
-//     canDelete: false,
-//   },
-//   {
-//     id: 3,
-//     name: "Abhishek K",
-//     leadId: "00765457",
-//     location: "Hyderabad",
-//     eventDate: "2-8-2022",
-//     status: 1,
-//     canEdit: false,
-//     canDelete: false,
-//   },
-//   {
-//     id: 4,
-//     name: "Udith Kumar",
-//     leadId: "00765458",
-//     location: "Pune",
-//     eventDate: "2-8-2022",
-//     status: 2,
-//     canEdit: false,
-//     canDelete: false,
-//   },
-//   {
-//     id: 5,
-//     name: "Akash Kumar",
-//     leadId: "00765459",
-//     location: "Bangalore",
-//     eventDate: "2-8-2022",
-//     status: 1,
-//     canEdit: false,
-//     canDelete: false,
-//   },
-//   {
-//     id: 6,
-//     name: "Akash Kumar",
-//     leadId: "00765460",
-//     location: "Bangalore",
-//     eventDate: "2-8-2022",
-//     status: 1,
-//     canEdit: false,
-//     canDelete: false,
-//   },
-//   {
-//     id: 7,
-//     name: "Manohar H",
-//     leadId: "00765461",
-//     location: "Hyderabad",
-//     eventDate: "2-8-2022",
-//     status: 1,
-//     canEdit: false,
-//     canDelete: false,
-//   },
-//   {
-//     id: 8,
-//     name: "Raghavendar",
-//     leadId: "00765462",
-//     location: "Delhi",
-//     eventDate: "2-8-2022",
-//     status: 1,
-//     canEdit: false,
-//     canDelete: false,
-//   },
-//   {
-//     id: 9,
-//     name: "Abhishek K",
-//     leadId: "00765463",
-//     location: "Bangalore",
-//     eventDate: "2-8-2022",
-//     status: 1,
-//     canEdit: false,
-//     canDelete: false,
-//   },
-//   {
-//     id: 10,
-//     name: "Udith Kumar",
-//     leadId: "00765464",
-//     location: "Hyderabad",
-//     eventDate: "2-8-2022",
-//     status: 2,
-//     canEdit: false,
-//     canDelete: false,
-//   },
-//   {
-//     id: 11,
-//     name: "Raghavendar",
-//     leadId: "00765465",
-//     location: "Delhi",
-//     eventDate: "2-8-2022",
-//     status: 1,
-//     canEdit: false,
-//     canDelete: false,
-//   },
-//   {
-//     id: 12,
-//     name: "Abhishek K",
-//     leadId: "00765466",
-//     location: "Bangalore",
-//     eventDate: "2-8-2022",
-//     status: 1,
-//     canEdit: false,
-//     canDelete: false,
-//   },
-// ];
 
 const DataTable = ({ handleUserId }) => {
   const {
@@ -207,16 +75,24 @@ const DataTable = ({ handleUserId }) => {
       text: "",
       formatter: (cell, row) => {
         return (
-          <button
-            className="table_btn"
-            onClick={(e) => {
-              handleTableView(e, row);
-            }}
-          >
-            <span>
-              <i className="fa-solid fa-eye"></i>
-            </span>
-          </button>
+          <>
+            <OverlayTrigger
+              key={row.id}
+              placement="bottom"
+              overlay={<Tooltip id={`tooltip-${row.id}`}>View</Tooltip>}
+            >
+              <button
+                className="table_btn"
+                onClick={(e) => {
+                  handleTableView(e, row);
+                }}
+              >
+                <span>
+                  <i className="fa-solid fa-eye"></i>
+                </span>
+              </button>
+            </OverlayTrigger>
+          </>
         );
       },
       sort: true,
@@ -226,17 +102,23 @@ const DataTable = ({ handleUserId }) => {
       text: "",
       formatter: (cell, row) => {
         return (
-          <button
-            className="table_btn"
-            onClick={(e) => {
-              handleTableEdit(e, row);
-            }}
-            disabled={row.canEdit ? false : true}
+          <OverlayTrigger
+            key={row.id}
+            placement="bottom"
+            overlay={<Tooltip id={`tooltip-${row.id}`}>Edit</Tooltip>}
           >
-            <span>
-              <i className="fa-solid fa-pen"></i>
-            </span>
-          </button>
+            <button
+              className="table_btn"
+              onClick={(e) => {
+                handleTableEdit(e, row);
+              }}
+              disabled={row.canEdit ? false : true}
+            >
+              <span>
+                <i className="fa-solid fa-pen"></i>
+              </span>
+            </button>
+          </OverlayTrigger>
         );
       },
       sort: true,
@@ -246,17 +128,23 @@ const DataTable = ({ handleUserId }) => {
       text: "",
       formatter: (cell, row) => {
         return (
-          <button
-            className="table_btn"
-            onClick={(e) => {
-              handleTableDelete(e, row);
-            }}
-            disabled={row.canDelete ? false : true}
+          <OverlayTrigger
+            key={row.id}
+            placement="bottom"
+            overlay={<Tooltip id={`tooltip-${row.id}`}>Delete</Tooltip>}
           >
-            <span>
-              <i className="fa-regular fa-trash-can"></i>
-            </span>
-          </button>
+            <button
+              className="table_btn"
+              onClick={(e) => {
+                handleTableDelete(e, row);
+              }}
+              disabled={row.canDelete ? false : true}
+            >
+              <span>
+                <i className="fa-regular fa-trash-can"></i>
+              </span>
+            </button>
+          </OverlayTrigger>
         );
       },
       sort: true,
@@ -266,16 +154,22 @@ const DataTable = ({ handleUserId }) => {
       text: "",
       formatter: (cell, row) => {
         return (
-          <button
-            className="table_btn"
-            onClick={(e) => {
-              handleTableSearch(e, row);
-            }}
+          <OverlayTrigger
+            key={row.id}
+            placement="bottom"
+            overlay={<Tooltip id={`tooltip-${row.id}`}>Search</Tooltip>}
           >
-            <span>
-              <i className="fa-solid fa-magnifying-glass"></i>
-            </span>
-          </button>
+            <button
+              className="table_btn"
+              onClick={(e) => {
+                handleTableSearch(e, row);
+              }}
+            >
+              <span>
+                <i className="fa-solid fa-magnifying-glass"></i>
+              </span>
+            </button>
+          </OverlayTrigger>
         );
       },
       sort: true,
@@ -284,7 +178,7 @@ const DataTable = ({ handleUserId }) => {
   const selectRow = {
     mode: "checkbox",
     clickToSelect: true,
-    style: { backgroundColor: "#fcb6b7" },
+    style: { backgroundColor: "#d3d3d3" },
   };
   return (
     <>
@@ -300,17 +194,17 @@ const DataTable = ({ handleUserId }) => {
       >
         {(props) => (
           <div>
-            <div className="section_header row g-0 mb-5">
+            <div className="section_header row g-0 mb-3 mb-md-5">
               <h2 className="section_title col-12 col-lg-2">Leads</h2>
-              <div className="search_input_container col-12 col-lg-10">
+              <div className="search_input_container col-12 col-lg-10 flex-wrap flex-md-nowrap">
                 <SearchBar {...props.searchProps} className="search_input" />
-                <button className="btn_custom btn_primary_red mx-3">
+                <button className="btn_custom btn_primary_red me-3 mb-3 mb-md-0 mx-md-3">
                   <span className="me-2">
                     <i className="fa-solid fa-plus"></i>
                   </span>
                   Add New
                 </button>
-                <button className="btn_custom btn_primary_red">
+                <button className="btn_custom btn_primary_red mb-3 mb-md-0">
                   Assign to Admin
                 </button>
               </div>

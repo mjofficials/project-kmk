@@ -6,8 +6,8 @@ const BudgetInfo = () => {
   return (
     <Tab.Container defaultActiveKey="tab-decoration">
       <Row className="mx-0 budget_tab_container g-0">
-        <Col sm={12}>
-          <Nav variant="pills" className="flex-row mb-4">
+        <Col sm={12} className="overflowX_scroll">
+          <Nav variant="pills" className="flex-row flex-nowrap">
             <Nav.Item>
               <Nav.Link eventKey="tab-decoration">Decoration</Nav.Link>
             </Nav.Item>

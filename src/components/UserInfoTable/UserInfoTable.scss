@@ -1,0 +1,13 @@
+.userInfo_table {
+    max-width: 400px;
+
+    tbody {
+        tr {
+            td {
+                &:last-child {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

@@ -17,7 +17,7 @@ const DropdownCollapse = () => {
         <div className="avatar_container"></div>
         <div className="content">
           <p className="username">User</p>
-          <p className="subtext">Telecaller</p>
+          <p className="designation">Telecaller</p>
         </div>
       </button>
       <div className="collapsible_content">
