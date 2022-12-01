@@ -1,0 +1,31 @@
+.dProps_content_container {
+
+    .dprops_table {
+        &>:not(caption)>*>* {
+            border-bottom-width: 0;
+        }
+
+        tbody tr td {
+            color: var(--theme-primary-grey);
+        }
+
+        tbody tr td input[type="text"] {
+            padding: 8px 16px;
+            border: 1px solid var(--theme-grey-300);
+            border-radius: 4px;
+            color: var(--theme-primary-grey);
+            font-weight: normal;
+            font-size: 14px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    .dprops_table_footer_btns {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+}

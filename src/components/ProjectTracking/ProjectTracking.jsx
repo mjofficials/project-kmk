@@ -1,9 +1,11 @@
+import Accordions from "../helpers/Accordions/Accordions";
+
 const ProjectTracking = ({ handleBacktoLeads, userDetail }) => {
   return (
     <div>
       <button className="btn_back" onClick={handleBacktoLeads}>
         <span className="me-2">
-          <i class="fa-solid fa-left-long"></i>
+          <i className="fa-solid fa-left-long"></i>
         </span>
         Back to Leads
       </button>
@@ -22,10 +24,13 @@ const ProjectTracking = ({ handleBacktoLeads, userDetail }) => {
           </button>
         </div>
       </div>
-      <div className="d-flex">
+      <div className="d-flex mb-3">
         <p className="subtext">{userDetail.leadId}</p>
         <span className="mx-3">|</span>
         <p className="subtext text_danger">Project Tracking</p>
+      </div>
+      <div className="accordions_container">
+        <Accordions />
       </div>
     </div>
   );
